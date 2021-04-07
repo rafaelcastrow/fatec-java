@@ -1,5 +1,8 @@
 package motos;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Popular { 
 	
 	//Atributos
@@ -50,9 +53,9 @@ public class Popular {
 	public int potencia (int cilindradas) {
 		if (cilindradas < 900)
 		{
-			System.out.println("A moto possui menos que 900 cilindras");
+			System.out.println("A moto possui menos que 900 cilindras \n ");
 		} else {
-			System.out.println("A moto possui mais que 900 cilindras");
+			System.out.println("A moto possui mais que 900 cilindras \n");
 		}
 		
 		return cilindradas;
@@ -83,7 +86,6 @@ public class Popular {
 			System.out.println("Informações extras: ");
 			System.out.println("Preço da moto R$ " + moto1.getPreco() + " \nKm por litro: " + moto1.getKmLitro());
 			System.out.println("===================================================");
-			
 			
 			Popular moto2 = new Popular (2018, "BMW S1000RR ", 1000);
 			moto2.setPreco(69999);
