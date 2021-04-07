@@ -22,6 +22,8 @@ import java.awt.Choice;
 import java.awt.Checkbox;
 import java.awt.Panel;
 import java.awt.Font;
+
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 
 public class Form extends JFrame {
@@ -33,6 +35,7 @@ public class Form extends JFrame {
 	private JTextField motoKm;
 	private JTextField motoCilindradas;
 	private JTextField motoCor;
+	private ButtonGroup buttonGroup;
 
 	/**
 	 * Launch the application.
@@ -64,25 +67,39 @@ public class Form extends JFrame {
 		JButton btnCadastrar = new JButton("CADASTRAR");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, 
-						"nome: " +motoNome.getText() + 
-						"\n\n Ano: " +motoAno.getText() + 
-						"\n\n Preço: " +motoPreco.getText() + 
-						"\n\n Km por litro: " +motoKm.getText() +
-						"\n\n Cilindradas: " +motoCilindradas.getText() + 
-						"\n\n Cor da moto: " +motoCor.getText() );
+				String motoModelo = buttonGroup.getSelection().getActionCommand();
 				
-				HashSet loading = new HashSet();
-				loading.add("Cadastrando......");
-				System.out.println(loading.toString());
+				JOptionPane.showMessageDialog(null, 
+						" Nome: " +motoNome.getText() + 
+						"\n Modelo: " +motoModelo + 
+						"\n Ano: " +motoAno.getText() + 
+						"\n Preço: R$" +motoPreco.getText() + 
+						"\n Km por litro: " +motoKm.getText() +
+						"\n Cilindradas: " +motoCilindradas.getText() + 
+						"\n Cor da moto: " +motoCor.getText() );
+				
+				HashMap end = new HashMap();
+				end.put("register", "Cadastrando....");
+				end.put("porcent", "5%");
+				end.put("porcent1", "25%");
+				end.put("porcent2", "45%");	
+				end.put("porcent3", "65%");
+				end.put("porcent4", "75%");
+				end.put("porcent5", "95%");
+				end.put("porcent6", "100%");
+				System.out.println(end.get("register"));
+				System.out.println(end.get("porcent"));
+				System.out.println(end.get("porcent1"));
+				System.out.println(end.get("porcent2"));
+				System.out.println(end.get("porcent3"));
+				System.out.println(end.get("porcent4"));
+				System.out.println(end.get("porcent5"));
+				System.out.println(end.get("porcent6"));
 				
 				HashSet confirm = new HashSet();
 				confirm.add("Cadastro realizado com sucesso!");
+				confirm.add("Cadastro realizado com sucesso!");
 				System.out.println(confirm.toString());
-				
-				HashMap end = new HashMap();
-				end.put("msg", "Programa pronto para cadastrar outra moto!");
-				System.out.println(end.get("msg"));
 				
 			}
 		});
@@ -141,10 +158,11 @@ public class Form extends JFrame {
 		
 		JLabel lblNewLabel_7 = new JLabel("New label");
 		lblNewLabel_7.setIcon(new ImageIcon("D:\\Downloads Navegador\\ducati.png"));
-		lblNewLabel_7.setBounds(396, 124, 73, 89);
+		lblNewLabel_7.setBounds(404, 124, 73, 89);
 		contentPane.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_8 = new JLabel("Marcas");
+		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_8.setBounds(357, 100, 46, 14);
 		contentPane.add(lblNewLabel_8);
 		
@@ -164,13 +182,38 @@ public class Form extends JFrame {
 		
 		JLabel lblNewLabel_10 = new JLabel("New label");
 		lblNewLabel_10.setIcon(new ImageIcon("D:\\Downloads Navegador\\harley (3).png"));
-		lblNewLabel_10.setBounds(390, 193, 95, 110);
+		lblNewLabel_10.setBounds(396, 224, 95, 96);
 		contentPane.add(lblNewLabel_10);
 		
 		JLabel lblNewLabel_11 = new JLabel("");
 		lblNewLabel_11.setIcon(new ImageIcon("D:\\Downloads Navegador\\Webp.net-resizeimage (3).png"));
-		lblNewLabel_11.setBounds(272, 173, 114, 141);
+		lblNewLabel_11.setBounds(274, 237, 114, 65);
 		contentPane.add(lblNewLabel_11);
 		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("");
+		rdbtnNewRadioButton.setActionCommand("BMW");
+		rdbtnNewRadioButton.setBounds(316, 210, 26, 23);
+		contentPane.add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("");
+		rdbtnNewRadioButton_1.setActionCommand("Ducati");
+		rdbtnNewRadioButton_1.setBounds(433, 207, 26, 23);
+		contentPane.add(rdbtnNewRadioButton_1);
+		
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("");
+		rdbtnNewRadioButton_2.setActionCommand("Yamaha");
+		rdbtnNewRadioButton_2.setBounds(316, 297, 21, 23);
+		contentPane.add(rdbtnNewRadioButton_2);
+		
+		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("");
+		rdbtnNewRadioButton_3.setActionCommand("Harley Davidson");
+		rdbtnNewRadioButton_3.setBounds(433, 309, 26, 23);
+		contentPane.add(rdbtnNewRadioButton_3);
+		
+		buttonGroup = new ButtonGroup();
+		buttonGroup.add(rdbtnNewRadioButton);
+		buttonGroup.add(rdbtnNewRadioButton_1);
+		buttonGroup.add(rdbtnNewRadioButton_2);
+		buttonGroup.add(rdbtnNewRadioButton_3);
 	}
 }
