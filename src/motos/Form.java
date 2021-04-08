@@ -70,7 +70,6 @@ public class Form extends JFrame {
 				String motoModelo = buttonGroup.getSelection().getActionCommand();
 				
 				JOptionPane.showMessageDialog(null, 
-						" Nome: " +motoNome.getText() + 
 						"\n Modelo: " +motoModelo + 
 						"\n Ano: " +motoAno.getText() + 
 						"\n Preço: R$" +motoPreco.getText() + 
